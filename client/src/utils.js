@@ -53,8 +53,6 @@ const getWeb3 = () => {
 const getWallet = async (web3) => {
   const networkId = await web3.eth.net.getId();
   const deployedNetwork = MultiSigWallet.networks[networkId];
-  console.log("networkId", networkId);
-  console.log("deployedNetwork", deployedNetwork);
 
   const contract = new web3.eth.Contract(
     MultiSigWallet.abi,
