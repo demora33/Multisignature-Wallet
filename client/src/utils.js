@@ -1,5 +1,4 @@
 import Web3 from "web3";
-// import detectEthereumProvider from "@metamask/detect-provider";
 import MultiSigWallet from "./contracts/MultiSigWallet.json";
 
 const getWeb3 = () => {
@@ -54,6 +53,8 @@ const getWeb3 = () => {
 const getWallet = async (web3) => {
   const networkId = await web3.eth.net.getId();
   const deployedNetwork = MultiSigWallet.networks[networkId];
+  console.log("networkId", networkId);
+  console.log("deployedNetwork", deployedNetwork);
 
   const contract = new web3.eth.Contract(
     MultiSigWallet.abi,

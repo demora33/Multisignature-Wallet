@@ -26,7 +26,7 @@ function TransferList({ transfers, approveTransfer }) {
                   Approve transfer
                 </button>
               </td>
-              <td>{transfer.sent ? "yes" : "no"}</td>
+              <td>{transfer.isSent ? "yes" : "no"}</td>
             </tr>
           ))}
         </tbody>

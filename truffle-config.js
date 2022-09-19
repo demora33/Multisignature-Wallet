@@ -1,6 +1,6 @@
 require("dotenv").config();
 const path = require("path");
-const { MNEMONIC, PROJECT_ID } = process.env;
+const { MNEMONIC_1, MNEMONIC_2, MNEMONIC_3, PROJECT_ID } = process.env;
 
 const HDWalletProvider = require("@truffle/hdwallet-provider");
 
@@ -16,14 +16,16 @@ module.exports = {
 
     goerli: {
       provider: () =>
-        new HDWalletProvider(
-          MNEMONIC,
-          `https://goerli.infura.io/v3/${PROJECT_ID}`
-        ),
-      network_id: 5, // Goerli's id
-      confirmations: 2, // # of confirmations to wait between deployments. (default: 0)
-      timeoutBlocks: 50, // # of blocks before a deployment times out  (minimum/default: 50)
-      // skipDryRun: true, // Skip dry run before migrations? (default: false for public nets )
+        new HDWalletProvider({
+          privateKeys: [MNEMONIC_1, MNEMONIC_2, MNEMONIC_3],
+          providerOrUrl:
+            "https://goerli.infura.io/v3/3171004bf87d4c1f8d1ee14862927e50",
+          chaindId: 5,
+          numberOfAddresses: 3,
+        }),
+      network_id: 5,
+      confirmations: 2,
+      skipDryRun: true,
     },
   },
 
