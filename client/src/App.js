@@ -21,9 +21,6 @@ function App() {
       const quorum = await wallet.methods.quorum().call();
       const transfers = await wallet.methods.getTransfers().call();
 
-      // console.log("wallet approvers", approvers);
-      // console.log("accounts", accounts);
-
       setWeb3(web3);
       setAccounts(accounts);
       setWallet(wallet);
@@ -60,7 +57,7 @@ function App() {
 
   return (
     <div>
-      Multi-Signature Dapp
+      <h1>Multi-Signature Dapp</h1>
       <Header approvers={approvers} quorum={quorum} />
       <NewTransfer
         createTransfer={createTransfer}
